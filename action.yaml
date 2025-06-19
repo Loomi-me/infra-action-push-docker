@@ -20,6 +20,10 @@ inputs:
     description: 'the directory to look the docker file in'
     required: false
     default: '.'
+  dockerfile:
+    description: 'Dockerfile to use for build'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
+

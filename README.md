@@ -23,6 +23,10 @@ Name of the image. Should be specified without domain and project.
 
 Image tag to set for the built image.
 
+### `dockerfile`
+
+Optional path to the Dockerfile to build. Defaults to `Dockerfile`.
+
 ## Required Environment Variables
 
 ### `GCLOUD_SERVICE_KEY`
@@ -35,13 +39,15 @@ Project id. Used in combination with GCR endpoint to build full docker image.
 
 ## Example usage
 
-```ylm
+```yaml
 uses: raccoondev/push-docker-gcr
 with:
   gcr_host: eu.gcr.io
   image_name: my_image
   image_tag: latest
+  dockerfile: Dockerfile.base
   env:
     GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
     GOOGLE_PROJECT_ID: ${{ secrets.GOOGLE_PROJECT_ID }}
 ```
+
