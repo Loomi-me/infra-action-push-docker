@@ -6,5 +6,11 @@ echo -n $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https:/
 
 cd $INPUT_WORKING_DIR
 
-docker build -t $IMAGE_NAME .
+if [ -n "$INPUT_DOCKERFILE" ]; then
+  DOCKERFILE_ARG="-f $INPUT_DOCKERFILE"
+else
+  DOCKERFILE_ARG=""
+fi
+
+docker build $DOCKERFILE_ARG -t $IMAGE_NAME .
 docker push $IMAGE_NAME
