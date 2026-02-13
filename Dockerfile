@@ -1,4 +1,4 @@
-FROM docker:19.03.2
+FROM docker:25.0
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
